@@ -1,5 +1,5 @@
 import { Inner } from '@/components/layout';
 
 export default function Page() {
-  return <Inner>Yebok</Inner>;
+  return <Inner>Like</Inner>;
 }
