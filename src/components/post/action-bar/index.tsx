@@ -9,10 +9,15 @@ interface Props {
 }
 
 export const ActionBar = ({ id }: Props) => {
-  const [isLike, setIsLike] = useState(false);
+  const [
+    isLike,
+    // setIsLike,
+  ] = useState(false);
 
   const handleToggleLike = () => {
-    setIsLike((prev) => !prev);
+    // TODO 좋아요 구현
+    // setIsLike((prev) => !prev);
+    toast.error('아직 구현되지 않은 기능입니다.');
   };
 
   const handleShare = () => {
