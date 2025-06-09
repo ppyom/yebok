@@ -29,11 +29,11 @@ export const ImageSlider = ({ images }: Props) => {
   }, [api]);
 
   return (
-    <Carousel setApi={setApi} opts={{ align: 'center' }}>
+    <Carousel setApi={setApi} className="flex max-w-[500px] flex-col" opts={{ align: 'center' }}>
       <CarouselContent className="-ml-0">
         {images.map((image, idx) => (
-          <CarouselItem key={`${image}_${idx}`} className="pl-0">
-            <Image src={image} alt={image} />
+          <CarouselItem key={`${image}_${idx}`} className="relative aspect-square pl-0">
+            <Image src={image} alt={image} isFirstImage={idx === 0} />
           </CarouselItem>
         ))}
       </CarouselContent>

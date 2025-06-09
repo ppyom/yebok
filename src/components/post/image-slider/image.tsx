@@ -3,16 +3,18 @@ import NextImage from 'next/image';
 interface Props {
   src: string;
   alt: string;
+  isFirstImage?: boolean;
 }
 
-export const Image = ({ src, alt }: Props) => {
+export const Image = ({ src, alt, isFirstImage }: Props) => {
   return (
     <NextImage
-      className="aspect-square object-cover object-center"
+      className="object-cover object-center"
       src={src}
       alt={alt}
-      width={1080}
-      height={1440}
+      fill={true}
+      priority={isFirstImage}
+      sizes="(max-width: 500px) 100vw, 500px"
     />
   );
 };
