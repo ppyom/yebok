@@ -16,7 +16,7 @@ export const PostCard = ({ id, ...props }: Props) => {
     if (event.target instanceof Element && event.target.closest('button')) {
       return;
     }
-    router.push(`/post/${id}`);
+    router.push(`/post/${id}`, { scroll: false });
   };
 
   return (
