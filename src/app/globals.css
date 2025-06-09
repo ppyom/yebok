@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -43,6 +44,7 @@
 
 :root {
   font-size: 14px;
+  font-family: 'Pretendard Variable', sans-serif;
 
   --radius: 0.625rem;
   --max-width: 500px;

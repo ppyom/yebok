@@ -1,14 +1,7 @@
 import type { Metadata } from 'next';
-import { Noto_Sans_KR } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
 import { Header } from '@/components/layout';
-import { cn } from '@/lib/utils';
 import './globals.css';
-
-const notoSans = Noto_Sans_KR({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-});
 
 export const metadata: Metadata = {
   title: 'Yebok',
@@ -22,7 +15,7 @@ interface Props {
 export default function RootLayout({ children, modal }: Props) {
   return (
     <html lang="ko">
-      <body className={cn(notoSans.className, 'bg-background antialiased')}>
+      <body className="bg-background antialiased">
         <Header />
         <main>{children}</main>
         <div id="modal-container">{modal}</div>
