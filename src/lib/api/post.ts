@@ -1,19 +1,16 @@
+import path from 'path';
+import fs from 'fs/promises';
 import type { Post } from '@/types';
 
-interface PostResponse {
-  list: Post[];
-}
-
 export const getPostList = async () => {
-  const response = await fetch('http://localhost:3000/data.json');
-  const data: PostResponse = await response.json();
+  const filePath = path.join(process.cwd(), 'public', 'data.json');
+  const fileContents = await fs.readFile(filePath, 'utf8');
+  const data: Post[] = JSON.parse(fileContents);
 
-  return data.list;
+  return data;
 };
 
 export const getPost = async (postId: string) => {
-  const response = await fetch('http://localhost:3000/data.json');
-  const data: PostResponse = await response.json();
-
-  return data.list.find((item) => item.id === postId);
+  const allPosts = await getPostList();
+  return allPosts.find((p) => p.id === postId);
 };
