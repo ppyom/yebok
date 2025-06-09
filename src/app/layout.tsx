@@ -5,6 +5,12 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Yebok',
+  description: '우리집 막내 예복이 😺',
+  openGraph: {
+    title: 'Yebok 😺',
+    description: '우리집 막내 예복이',
+    images: '/yebok.jpeg',
+  },
 };
 
 interface Props {
