@@ -7,10 +7,15 @@ interface Props {
 
 export const PageIndicator = ({ current, pages }: Props) => {
   return (
-    <div className="absolute bottom-4 left-1/2 h-2.5 w-20 -translate-x-1/2 overflow-hidden">
+    <div
+      className={cn(
+        'absolute bottom-4 flex h-2.5 w-20 items-center self-center overflow-hidden',
+        pages <= 5 && 'justify-center',
+      )}
+    >
       <div
-        className="absolute top-0 flex items-center gap-2 duration-300"
-        style={{ left: `-${Math.min(current, pages - 3) - 2}rem` }}
+        className="absolute top-0 flex items-center justify-center gap-2 duration-300"
+        style={pages > 5 ? { translate: `-${Math.min(current, pages - 3) - 2}rem` } : undefined}
       >
         {Array.from({ length: pages }).map((_, idx) => (
           <div
