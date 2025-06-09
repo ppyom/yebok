@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { PostCard } from '@/components/post';
 import { Inner } from '@/components/layout';
-import type { Post } from '@/types';
+import { getPost } from '@/lib/api/post';
 
 interface Props {
   params: Promise<{ postId: string }>;
@@ -9,9 +9,7 @@ interface Props {
 
 export default async function Page({ params }: Props) {
   const { postId } = await params;
-  const data = await fetch('http://localhost:3000/data.json')
-    .then((res) => res.json() as Promise<{ list: Post[] }>)
-    .then((data) => data.list.find((item) => item.id === postId));
+  const data = await getPost(postId);
 
   if (!data) {
     return notFound();

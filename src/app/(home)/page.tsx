@@ -1,11 +1,9 @@
 import { Inner } from '@/components/layout';
 import { PostCard } from '@/components/post';
-import type { Post } from '@/types';
+import { getPostList } from '@/lib/api/post';
 
 export default async function Page() {
-  const data = await fetch('http://localhost:3000/data.json')
-    .then((res) => res.json() as Promise<{ list: Post[] }>)
-    .then((data) => data.list);
+  const data = await getPostList();
 
   return (
     <Inner className="px-0 sm:px-4">
