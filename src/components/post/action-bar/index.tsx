@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { ActionButton } from './action-button';
 
-export const ActionBar = () => {
+interface Props {
+  id: string;
+}
+
+export const ActionBar = ({ id }: Props) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleToggleLike = () => {
@@ -12,8 +16,9 @@ export const ActionBar = () => {
   };
 
   const handleShare = () => {
-    // TODO URL 설정
-    navigator.clipboard.writeText('url').catch((error) => console.error(error));
+    navigator.clipboard
+      .writeText(`${location.origin}/post/${id}`)
+      .catch((error) => console.error(error));
     toast('클립보드에 복사되었습니다!');
   };
 

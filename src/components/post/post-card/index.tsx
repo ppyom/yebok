@@ -24,12 +24,11 @@ export const PostCard = ({ id, ...props }: Props) => {
       className={cn(
         'post-card',
         'bg-card flex flex-col gap-4 pb-4 duration-300 hover:shadow-lg active:shadow-lg',
-        props.isFull && 'max-h-screen',
       )}
       onClick={!props.isFull ? handleOpenDetailModal : undefined}
     >
       <ImageSlider {...props} />
-      <ActionBar />
+      <ActionBar id={id} />
       <Content {...props} />
     </div>
   );

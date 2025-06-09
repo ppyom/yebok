@@ -130,6 +130,25 @@
   justify-content: center;
 }
 
+body:has(.modal) {
+  overflow: hidden;
+}
+
+.modal .post-card {
+  height: 100%;
+  max-height: 100vh;
+  @media (width >= 48rem) {
+    height: auto;
+  }
+}
+
+.modal .post-card > .content {
+  overflow-y: auto;
+  @media (width >= 48rem) {
+    max-height: calc(var(--spacing) * 96);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
