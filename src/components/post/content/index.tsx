@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { relative } from '@/utils/day';
 
 interface Props {
   content: string;
@@ -12,7 +13,7 @@ export const Content = ({ content, createdAt, isFull }: Props) => {
       <p className={cn('text-card-foreground whitespace-break-spaces', !isFull && 'line-clamp-3')}>
         {content}
       </p>
-      <data className="text-muted-foreground">{createdAt}</data>
+      <data className="text-muted-foreground">{relative(createdAt)}</data>
     </div>
   );
 };
