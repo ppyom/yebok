@@ -144,6 +144,10 @@ body:has(.modal) {
   }
 }
 
+*::selection {
+  @apply bg-amber-300/50;
+}
+
 .modal .post-card > .content {
   overflow-y: auto;
   @media (width >= 48rem) {
